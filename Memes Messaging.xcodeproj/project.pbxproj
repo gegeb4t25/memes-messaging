@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		267EC3AE1FE79D720098B950 /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267EC3AD1FE79D720098B950 /* ContactsTableViewCell.swift */; };
+		267EC3B01FE7CCAC0098B950 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267EC3AF1FE7CCAC0098B950 /* ContactsTableViewController.swift */; };
+		267EC3B21FE8054B0098B950 /* MemesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267EC3B11FE8054B0098B950 /* MemesCollectionViewController.swift */; };
 		268247FA1FE3FFE20025548A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268247F91FE3FFE20025548A /* AppDelegate.swift */; };
 		268247FC1FE3FFE20025548A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268247FB1FE3FFE20025548A /* ViewController.swift */; };
 		268247FF1FE3FFE20025548A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 268247FD1FE3FFE20025548A /* Main.storyboard */; };
@@ -16,7 +17,6 @@
 		2682480C1FE3FFEC0025548A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2682480B1FE3FFEC0025548A /* GoogleService-Info.plist */; };
 		26836DE91FE4150400370443 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26836DE81FE4150400370443 /* RegisterViewController.swift */; };
 		26836DEB1FE4152300370443 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26836DEA1FE4152300370443 /* ProfileViewController.swift */; };
-		26836DED1FE4153F00370443 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26836DEC1FE4153F00370443 /* ContactsViewController.swift */; };
 		26836DEF1FE4155B00370443 /* AddContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26836DEE1FE4155B00370443 /* AddContactsViewController.swift */; };
 		26836DF11FE4159800370443 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26836DF01FE4159800370443 /* ChatViewController.swift */; };
 		26836DF31FE42FEB00370443 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26836DF21FE42FEB00370443 /* Helpers.swift */; };
@@ -25,7 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		267EC3AD1FE79D720098B950 /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
+		267EC3AF1FE7CCAC0098B950 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
+		267EC3B11FE8054B0098B950 /* MemesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemesCollectionViewController.swift; sourceTree = "<group>"; };
 		268247F61FE3FFE20025548A /* Memes Messaging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Memes Messaging.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		268247F91FE3FFE20025548A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		268247FB1FE3FFE20025548A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,7 +37,6 @@
 		2682480B1FE3FFEC0025548A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		26836DE81FE4150400370443 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		26836DEA1FE4152300370443 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		26836DEC1FE4153F00370443 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		26836DEE1FE4155B00370443 /* AddContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactsViewController.swift; sourceTree = "<group>"; };
 		26836DF01FE4159800370443 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		26836DF21FE42FEB00370443 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -95,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				26836DF21FE42FEB00370443 /* Helpers.swift */,
-				267EC3AD1FE79D720098B950 /* ContactsTableViewCell.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -114,10 +113,11 @@
 				268247FB1FE3FFE20025548A /* ViewController.swift */,
 				26836DE81FE4150400370443 /* RegisterViewController.swift */,
 				26836DEA1FE4152300370443 /* ProfileViewController.swift */,
-				26836DEC1FE4153F00370443 /* ContactsViewController.swift */,
 				26836DEE1FE4155B00370443 /* AddContactsViewController.swift */,
 				26836DF01FE4159800370443 /* ChatViewController.swift */,
 				26F58D9E1FE630620025533D /* EditProfileViewController.swift */,
+				267EC3AF1FE7CCAC0098B950 /* ContactsTableViewController.swift */,
+				267EC3B11FE8054B0098B950 /* MemesCollectionViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -277,13 +277,13 @@
 			files = (
 				26836DE91FE4150400370443 /* RegisterViewController.swift in Sources */,
 				268247FC1FE3FFE20025548A /* ViewController.swift in Sources */,
-				267EC3AE1FE79D720098B950 /* ContactsTableViewCell.swift in Sources */,
 				26836DEB1FE4152300370443 /* ProfileViewController.swift in Sources */,
+				267EC3B01FE7CCAC0098B950 /* ContactsTableViewController.swift in Sources */,
+				267EC3B21FE8054B0098B950 /* MemesCollectionViewController.swift in Sources */,
 				26836DF31FE42FEB00370443 /* Helpers.swift in Sources */,
 				26836DF11FE4159800370443 /* ChatViewController.swift in Sources */,
 				26836DEF1FE4155B00370443 /* AddContactsViewController.swift in Sources */,
 				268247FA1FE3FFE20025548A /* AppDelegate.swift in Sources */,
-				26836DED1FE4153F00370443 /* ContactsViewController.swift in Sources */,
 				26F58D9F1FE630620025533D /* EditProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

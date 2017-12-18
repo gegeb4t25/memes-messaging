@@ -39,6 +39,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             self.isiProfileArr.append("Click here to sign out from application")
             self.profileTableView.reloadData()
         })
+        profileTableView.reloadData()
         help.changeProfilePicture(imagePath: imagePath, pictureImageView: pictureImageView)
     }
     
