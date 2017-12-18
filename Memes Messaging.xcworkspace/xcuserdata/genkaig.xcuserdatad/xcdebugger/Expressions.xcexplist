@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "AddContactsViewController.addFriends() -&gt; ():AddContactsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(UITextField!)self.emailTextField">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
