@@ -35,11 +35,9 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         currentUid = (Auth.auth().currentUser?.uid)!
+        self.chatTableView.allowsMultipleSelectionDuringEditing = false
         //theChat.append(ChatDetails(uid1: "asd", uid2: "asdd", imagePath1: "asd", imagePath2: "zxc", message: "asd", timeSent: "asd"))
         // Do any additional setup after loading the view.
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         dbRef.child("Chats").queryOrderedByKey().observe(.childAdded, with: {
             snapshot in
             print(snapshot)
@@ -62,6 +60,10 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 }
             }
         })
+        chatTableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         chatTableView.reloadData()
     }
     @IBAction func sendClicked(_ sender: Any) {
@@ -142,6 +144,18 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         descriptionLabel.text?.append(theChat[row].timeSent)
         return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if(editingStyle == .delete){
+            print("delete")
+            theChat.remove(at: indexPath.row)
+            chatTableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
