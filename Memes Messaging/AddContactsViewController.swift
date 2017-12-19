@@ -31,17 +31,17 @@ class AddContactsViewController: UIViewController {
         if(emailTextField.text != ""){
             let dbRef = Database.database().reference()
                 dbRef.child("Users").observe(DataEventType.childAdded, with: { (snapshot) in
-                    let value = snapshot as! DataSnapshot
+                    let value = snapshot 
                     let dict = value.value as! NSDictionary
                     let userEmail = dict["email"]
-                    if(userEmail! as! String == self.emailTextField.text){
+                    if(userEmail! as? String == self.emailTextField.text){
                         self.userUid = dict["uid"] as! String
                     }
                 })
                 //end of cari uid teman
                 let uid = Auth.auth().currentUser?.uid
                 if(self.userUid != ""){
-                    let relatecontact : [String : Any] = ["uid1" : uid,
+                    let relatecontact : [String : Any] = ["uid1" : uid ?? "uid1",
                                                           "uid2" : self.userUid]
                     //dbRef.child("Friends").child(uid!).childByAutoId().setValue(["uid" : self.userUid])
                     dbRef.child("Friends").childByAutoId().setValue(relatecontact)

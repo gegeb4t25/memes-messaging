@@ -38,7 +38,7 @@ class ViewController: UIViewController {
             Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: {
                 user, error in
                 if(error != nil){
-                    print(error?.localizedDescription)
+                    print(error?.localizedDescription ?? "error")
                     self.help.showErrorAlert(message: (error?.localizedDescription)!, uivc: self)
                 } else {
                     self.performSegue(withIdentifier: "gotoProfile", sender: self)

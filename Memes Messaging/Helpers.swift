@@ -25,7 +25,7 @@ class Helpers {
             URLSession.shared.dataTask(with: url){
                 (data, response, error) in
                 if(error != nil){
-                    print("Error fetching image : ", error)
+                    print("Error fetching image : ", error ?? "error")
                     return
                 }
                 

@@ -72,7 +72,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let postingan : [String : Any] = ["uid1" : currentUid,
                                             "uid2" : friendsUid,
                                             "isGambar" : "false",
-                                            "message" : messageTextField.text,
+                                            "message" : messageTextField.text ?? "",
                                             "timestamp" : waktuSekarang,
                                             "sender" : currentUid]
             dbRef.child("Chats").childByAutoId().setValue(postingan)
@@ -88,7 +88,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
             uploadRef.putData(uploadData, metadata: nil, completion:{
                 (metadata, error) in
                 if(error != nil){
-                    print(error)
+                    print(error ?? "error")
                     return
                 }
                 if let memesImgUrl = metadata?.downloadURL()?.absoluteString{
@@ -102,7 +102,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     self.dbRef.child("Chats").childByAutoId().setValue(postingan)
                     self.chatTableView.reloadData()
                 }
-                print(metadata)
+                print(metadata ?? "no metadata")
             })
         }
         chatTableView.reloadData()

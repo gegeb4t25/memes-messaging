@@ -48,14 +48,14 @@ class RegisterViewController: UIViewController {
                 Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: {
                     user, error in
                     if(error != nil){
-                        print(error?.localizedDescription)
+                        print(error?.localizedDescription ?? "error")
                         self.help.showErrorAlert(message: (error?.localizedDescription)!, uivc: self)
                         //self.showErrorAlert(message: (error?.localizedDescription)!)
                     } else {
                         let uid = Auth.auth().currentUser?.uid
                         let databaseRef = Database.database().reference()
-                        let userIdentity : [String : Any] = ["fullname" : self.nameTextField.text,
-                                                             "email" : self.emailTextField.text,
+                        let userIdentity : [String : Any] = ["fullname" : self.nameTextField.text ?? "",
+                                                             "email" : self.emailTextField.text ?? "error email",
                                                              "uid" : uid!,
                                                              "displaypict" : "default"]
                         databaseRef.child("Users").child(uid!).setValue(userIdentity)

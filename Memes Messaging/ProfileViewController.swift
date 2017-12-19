@@ -72,7 +72,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 self.performSegue(withIdentifier: "gotoLogin", sender: self)
             } catch let signOutError as NSError {
                 print("Error signing out : %@", signOutError)
-                help.showErrorAlert(message: signOutError as! String, uivc: self)
+                //help.showErrorAlert(message: signOutError, uivc: self)
             }
         } else {
            self.performSegue(withIdentifier: "gotoEditProfile", sender: self)

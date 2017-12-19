@@ -47,7 +47,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             titleLabel.text = "Change Display Picture"
             newDisplayPicture.isHidden = false
             newDisplayPicture.isUserInteractionEnabled = true
-            let singleTap = UITapGestureRecognizer(target: self, action: Selector("tapDetected"))
+            let singleTap = UITapGestureRecognizer(target: self, action: #selector(EditProfileViewController.tapDetected))
             newDisplayPicture.addGestureRecognizer(singleTap)
         }
         uid = (Auth.auth().currentUser?.uid)!
@@ -79,13 +79,13 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @objc func tapDetected() {
         print("Imageview Clicked")
         let myPickerController = UIImagePickerController()
-        myPickerController.delegate = self as! UIImagePickerControllerDelegate & UINavigationControllerDelegate;
+        myPickerController.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate;
         myPickerController.allowsEditing = true
         myPickerController.sourceType = UIImagePickerControllerSourceType.photoLibrary
         self.present(myPickerController, animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         newDisplayPicture.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         self.dismiss(animated: true, completion: nil)
     }
@@ -95,7 +95,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         loadingIndicator.isHidden = false
         loadingIndicator.startAnimating()
         if(selectedIndex == 0){
-            let post = ["email" : emailaddr, "fullname" : firstTextField.text, "uid" : uid, "displaypict" : displaypict] as [String : Any]
+            let post = ["email" : emailaddr, "fullname" : firstTextField.text ?? "fullname", "uid" : uid, "displaypict" : displaypict] as [String : Any]
             let childUpdates = [ uid : post ]
             dbRef.child("Users").updateChildValues(childUpdates)
             self.performSegue(withIdentifier: "gotoBackProfile", sender: self)
@@ -105,7 +105,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                 uploadRef.putData(uploadData, metadata: nil, completion:{
                     (metadata, error) in
                     if(error != nil){
-                        print(error)
+                        print(error ?? "error")
                         return
                     }
                     if let profileImgUrl = metadata?.downloadURL()?.absoluteString{
@@ -114,7 +114,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                         self.dbRef.child("Users").updateChildValues(childUpdates)
                         self.performSegue(withIdentifier: "gotoBackProfile", sender: self)
                     }
-                    print(metadata)
+                    print(metadata ?? "no metadata")
                 })
             }
         }
